@@ -28,14 +28,10 @@ public class CellController : DNASequence
     [Space]
     public float lifeCycle;
 
-    public void Awake()
+    public override void Awake()
     {
+        base.Awake();
         SetNormalCell();
-    }
-
-    public override void Start()
-    {
-        base.Start();
     }
 
     private void FixedUpdate()

@@ -15,6 +15,8 @@ public class AberrantSplite : IAction
         if (timer <= 0)
         {
             GameObject g = GameObject.Instantiate(go, go.transform.position + new Vector3(Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f), 0), Quaternion.identity);
+            g.transform.name = Time.time.ToString();
+            g.SendMessage("ClearError");
             g.SendMessage("SetCancerCell");
             ResetTimer();
         }

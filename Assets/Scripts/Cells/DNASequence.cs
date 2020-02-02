@@ -12,7 +12,7 @@ public abstract class DNASequence : MonoBehaviour
     public List<int> indexOfError = new List<int>();
     public int countOfError = 0;
 
-    public virtual void Start() {
+    public virtual void Awake() {
         InitialDNASequence();
     }
 
@@ -32,6 +32,8 @@ public abstract class DNASequence : MonoBehaviour
     /// 破坏DNA序列
     /// </summary>
     public void BreakDNASequence() {
+        Debug.Log(gameObject.name + "破坏DNA");
+
         switch (Random.Range(0, 3)) {
             case 0: {
                     CreateEmptyChain();
@@ -64,6 +66,10 @@ public abstract class DNASequence : MonoBehaviour
             rightSingleChain[i] = dnaChainBackup[i + 5];
         }
 
+        ClearError();
+    }
+
+    public void ClearError() {
         indexOfError.Clear();
         countOfError = 0;
     }
